@@ -6,7 +6,6 @@ import dto.PersonDTO;
 import entities.Person;
 import exceptions.PersonNotFoundException;
 import utils.EMF_Creator;
-import facades.FacadeExample;
 import facades.PersonFacade;
 import java.util.List;
 import java.util.logging.Level;
@@ -46,6 +45,7 @@ public class PersonRessource {
 
         PersonDTO pdto = null;
         try {
+            
             pdto = FACADE.getPerson(id);
         
         }finally{
