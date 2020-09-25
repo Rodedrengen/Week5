@@ -7,7 +7,7 @@ package facades;
 
 import dto.PersonDTO;
 import entities.Person;
-import entities.RenameMe;
+import exceptions.PersonNotFoundException;
 import java.lang.reflect.Executable;
 import java.util.List;
 import javax.persistence.EntityManager;
@@ -79,7 +79,7 @@ public class PersonFacadeTest {
      * Test of addPerson method, of class PersonFacade.
      */
     @Test
-    public void testAddPerson() {
+    public void testAddPerson() throws PersonNotFoundException {
 
         String fName = "tester";
         String lName = "testing";
@@ -99,7 +99,7 @@ public class PersonFacadeTest {
      * Test of deletePerson method, of class PersonFacade.
      */
     @Test
-    public void testDeletePerson() {
+    public void testDeletePerson() throws PersonNotFoundException {
         int expected = 3;
         facade.deletePerson(p1.getId());
 
@@ -116,7 +116,7 @@ public class PersonFacadeTest {
      * Test of getPerson method, of class PersonFacade.
      */
     @Test
-    public void testGetPerson() {
+    public void testGetPerson() throws PersonNotFoundException {
 
         String exspectedPhone = p1.getPhone();
         String exspectedName = p1.getFirstName();
@@ -146,7 +146,7 @@ public class PersonFacadeTest {
      * Test of editPerson method, of class PersonFacade.
      */
     @Test
-    public void testEditPerson() {
+    public void testEditPerson() throws PersonNotFoundException {
 
         Person p7 = new Person("John", "Per", "7777");
 
